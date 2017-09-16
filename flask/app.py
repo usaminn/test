@@ -3,6 +3,8 @@
 # Flask などの必要なライブラリをインポートする
 from flask import Flask, render_template, request, redirect, url_for
 import numpy as np
+import re
+import glob
 
 # 自身の名称を app という名前でインスタンス化する
 app = Flask(__name__)
@@ -40,6 +42,30 @@ def post():
     else:
         # エラーなどでリダイレクトしたい場合はこんな感じで
         return redirect(url_for('index'))
+
+@app.route('/articles')
+def articles():
+    title = "ようこそ"
+#     article = {}
+#    image   = {}
+    article = []
+    
+    adds = glob.glob("static/articles/*")
+
+    for g in adds:
+        with open(g,"r",encoding="utf-8") as f:
+            while True:
+                line = f.readline()
+                if line == "":
+                    break
+                if re.sub(" *img *= *", "img=", line)[:4] == "img=":
+                    article.append("img=static/image/"+re.sub(" *img *= *", "img=", line)[4:])
+                else:
+                    article.append(line)
+        article.append("----------------------------------------------------------")
+    # index.html をレンダリングする
+    return render_template('news.html',
+                           article=article, title=title)
 
 if __name__ == '__main__':
     app.debug = True # デバッグモード有効化
