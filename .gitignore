@@ -1,2 +1,5 @@
 tmp/
-**/setting.py
+setting.py
+nohup.out
+*.swp
+*.swo
