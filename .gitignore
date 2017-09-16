@@ -1,0 +1,5 @@
+tmp/
+setting.py
+nohup.out
+*.swp
+*.swo
