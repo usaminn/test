@@ -1,47 +1,44 @@
-.container {
+body {
   font-family: 'Courier New', sans-serif;
-  width: 300px;
-  margin: 30px auto 0;
-  text-align: center;
-  font-weight: bold;
-}
-
-#target, #result {
-  font-size: 32px;
-  margin-bottom: 15px;
-  background: #ccc;
-  height: 60px;
-  line-height: 60px;
-}
-
-#result.standby {
-  opacity: 0.5;
-}
-
-#result.perfect {
-  background: #FA5858;
-  color: #fff;
-}
-
-#start {
-  float: left;
-}
-
-#stop {
-  float: right;
-}
-
-#start, #stop {
-  cursor: pointer;
-  font-size: 18px;
-  width: 145px;
+  font-size: 14px;
   background: #eee;
-  height: 40px;
-  line-height: 40px;
-  box-shadow: 0 6px 0 #ccc;
 }
 
-#start.pushed, #stop.pushed {
-  margin-top: 3px;
-  box-shadow: 0 3px 0 #ccc;
+.container {
+  margin: 20px auto;
+  width: 270px;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+#timer {
+  background: #ddd;
+  height: 120px;
+  line-height: 120px;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  width: 80px;
+  background: #ddd;
+  height: 45px;
+  line-height: 45px;
+  float: left;
+  user-select: none;
+}
+
+.controls {
+  overflow: hidden;
+}
+
+.btn + .btn {
+  margin-left: 15px;
+}
+
+.inactive {
+  opacity: 0.6;
 }
